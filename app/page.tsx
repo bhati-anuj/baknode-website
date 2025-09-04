@@ -534,6 +534,19 @@ export default function Home() {
                   Contact
                 </a>
               </li>
+              <li>
+                <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors duration-300">
+                  Terms
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                >
+                  Privacy
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
