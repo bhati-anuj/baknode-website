@@ -4,12 +4,13 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 export const metadata: Metadata = {
   title: "BAKNODE — Automate your business",
   description: "BAKNODE helps you automate and integrate your business with robust products and services.",
-  generator: "v0.app",
+  generator: "backnode",
 }
 
 export default function RootLayout({
@@ -18,9 +19,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <Suspense fallback={null}>{children}</Suspense>
+        <ThemeProvider defaultTheme="dark" storageKey="baknode-ui-theme">
+          <Suspense fallback={null}>{children}</Suspense>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>
